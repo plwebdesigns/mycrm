@@ -7,4 +7,17 @@
 
 h1,h2,h3 {
     font-family: 'Lobster', cursive;
+    text-align: center;
+    color: #145CBF;
+}
+
+.page-header {
+	margin: 100 100;
+}
+.table td, .table th {
+	padding: 1.5rem;
+}
+
+.table tr {
+	line-height: .2em;
 }

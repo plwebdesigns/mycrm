@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +9,35 @@
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 <body>
 
-	<h1>Client List</h1>
-	
+	<div class="page-header">
+		<h1>Client List</h1>
+	</div>
+	<div class="search"></div>
+	<table class="table table-dark">
+		<thead style="color: #8B1F1D;">
+			<tr>
+				<th scope="col"><u>Client ID</u></th>
+				<th scope="col"><u>First Name</u></th>
+				<th scope="col"><u>Last Name</u></th>
+				<th scope="col"><u>City</u></th>
+				<th scope="col"><u>State</th>
+			</tr>	
+		</thead>
+		<tbody>
+			{% block content %}
+			{% for client in clients.all %}
+			<tr>
+				<th class="row">{{ client.id }}</th>
+				<td>{{ client.first_name }}</td>
+				<td>{{ client.last_name }}</td>
+				<td>{{ client.city }}</td>
+				<td>{{ client.state }}</td>
+			</tr>
+			{% endfor %}
+			{% endblock %}
+		</tbody>
+	</table>
+
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
 </body>
