@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from clients.models import Client
 
 # Create your views here.
@@ -7,6 +7,6 @@ def clientList(request):
 	return render(request, 'clients/clientList.html', {'clients': obj})
 
 
-def detailView(request, lname):
-	obj = Client.objects.filter(last_name=lname)
-	return render(request, 'clients/clientDetail.html', {'clients': obj})
+def detailView(request, id_client):
+	obj = get_object_or_404(Client, pk=id_client)
+	return render(request, 'clients/clientDetail.html', {'client': obj})

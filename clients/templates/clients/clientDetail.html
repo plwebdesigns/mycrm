@@ -1,12 +1,132 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<title>Client Detail</title>
 </head>
-<body>
+<body style="background-color: #4F7EAC; width: 60%; margin: 0 auto;">
 	<h1>Client Information</h1>
+	<form action="" class="crmform">
+		<fieldset disabled="true">
+		<div class="row">
+			<div class="col">
+				<label for="first_name">First Name:</label>
+				<input class="form-control" type="text" value="{{ client.first_name }}" name="first_name">
+			</div>
+			<div class="col">
+				<label for="last_name">Last Name:</label>
+				{% if client.last_name != None  %}
+				<input class="form-control" type="text" name="last_name" value="{{ client.last_name }}">
+				{% else %}
+				<input class="form-control" type="text" name="last_name" placeholder="Last Name">
+				{% endif %}
+
+			</div>
+			<div class="col">
+				<label for="id">ID:</label>
+				<input class="form-control" type="text" value="{{ client.id }}">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label for="">Address</label>
+				<input class="form-control" type="text" value="{{ client.address_1 }}" name="address_1" style="max-width: 450px;">
+			</div>
+			<div class="col">
+				<label for="address_2">Address 2</label>
+				{% if client.address_2 != None  %}
+				<input class="form-control" type="text" name="address_2" value="{{ client.address_2 }}" style="max-width: 450px;">
+				{% else %}
+				<input class="form-control" type="text" name="address_2" placeholder="Address" style="max-width: 450px;">
+				{% endif %}
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label for="city">City:</label>
+				<input class="form-control" type="text" value="{{ client.city }}" name="city">
+			</div>
+			<div class="col">
+				<label for="state">State:</label>
+				<input class="form-control" type="text" name="state" value="{{ client.state }}">
+			</div>
+			<div class="col">
+				<label for="Zipcode">Zipcode:</label>
+				<input class="form-control" type="text" value="{{ client.zipcode }}">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label for="phone_1">Phone 1:</label>
+				{% if client.phone_1 != None  %}
+				<input class="form-control" type="text" name="phone_1" value="{{ client.phone_1 }}">
+				{% else %}
+				<input class="form-control" type="text" name="phone_1" placeholder="Phone">
+				{% endif %}
+			</div>
+			<div class="col">
+				<label for="phone_2">Phone 2:</label>
+				{% if client.phone_2 != None  %}
+				<input class="form-control" type="text" name="phone_2" value="{{ client.phone_2 }}">
+				{% else %}
+				<input class="form-control" type="text" name="phone_2" placeholder="Phone">
+				{% endif %}
+			</div>
+			<div class="col">
+				<label for="phone_3">Phone 3:</label>
+				{% if client.phone_3 != None  %}
+				<input class="form-control" type="text" name="phone_3" value="{{ client.phone_3 }}">
+				{% else %}
+				<input class="form-control" type="text" name="phone_3" placeholder="Phone">
+				{% endif %}
+			</div>
+			<div class="col">
+				<label for="phone_4">Phone 4:</label>
+				{% if client.phone_4 != None  %}
+				<input class="form-control" type="text" name="phone_4" value="{{ client.phone_4 }}">
+				{% else %}
+				<input class="form-control" type="text" name="phone_4" placeholder="Phone">
+				{% endif %}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label for="ssn">SSN:</label>
+				{% if client.ssn != None  %}
+				<input class="form-control" type="text" name="ssn" value="{{ client.ssn }}">
+				{% else %}
+				<input class="form-control" type="text" name="ssn" placeholder="SSN">
+				{% endif %}
+			</div>
+			<div class="col">
+				<label for="dob">DOB:</label>
+				{% if client.dob != None  %}
+				<input class="form-control" type="text" name="dob" value="{{ client.dob }}">
+				{% else %}
+				<input class="form-control" type="text" name="dob" placeholder="DOB">
+				{% endif %}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label for="">Notes:</label>
+				{% if client.notes != None %}
+				<textarea class="form-control">{{ client.notes }}</textarea>
+				{% else %}
+				<textarea class="form-control">Notes Here....</textarea>
+				{% endif %}
+			</div>
+		</div>
+		</fieldset>	
+	</form>
 	
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
 </body>
 </html>
