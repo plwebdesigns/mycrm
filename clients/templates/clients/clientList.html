@@ -27,7 +27,7 @@
 			{% block content %}
 			{% for client in clients.all %}
 			<tr>
-				<th class="row">{{ client.id }}</th>
+				<th class="row"><a href="{% url 'clients:detailView' client.id %}">{{ client.id }}</a></th>
 				<td>{{ client.first_name }}</td>
 				<td>{{ client.last_name }}</td>
 				<td>{{ client.city }}</td>
