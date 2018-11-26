@@ -7,6 +7,9 @@ def clientList(request):
 	return render(request, 'clients/clientList.html', {'clients': obj})
 
 
-def detailView(request, id_client):
-	obj = get_object_or_404(Client, pk=id_client)
-	return render(request, 'clients/clientDetail.html', {'client': obj})
+def detail(request, cid):
+	objClient = get_object_or_404(Client, pk=cid)
+	return render(request, 'clients/clientDetail.html', {'client': objClient})
+
+
+	

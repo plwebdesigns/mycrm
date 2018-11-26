@@ -18,4 +18,5 @@ class Client (models.Model):
     ssn = models.CharField(max_length=12)
 
     def __str__(self):
-        return  self.id, self.last_name, self.first_name
+        template = '{0.last_name} {0.first_name}'
+        return template.format(self)

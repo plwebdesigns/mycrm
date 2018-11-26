@@ -1,0 +1,42 @@
+/* Google Fonts
+    font-family: 'Allerta Stencil', sans-serif;
+    font-family: 'Lobster', cursive;
+    font-family: 'Oswald', sans-serif;
+
+*/
+
+h1,h2,h3 {
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    color: #43A689;
+}
+
+.page-header {
+	margin: 100 100;
+}
+.table td, .table th {
+	padding: 1.5rem;
+}
+
+.table tr {
+	line-height: .2em;
+}
+
+.row div.col {
+	margin: 15px 0px;
+}
+
+.col input {
+	font-family: 'Allerta Stencil', sans-serif;
+	font-weight: bolder;
+	max-width: 300px;
+	background: #E3EFF4;
+}
+.col label {
+	font-family: 'Oswald', sans-serif;
+	font-weight: bold;
+	color: #B4C1A7;
+}
+a {
+	color: white;
+}

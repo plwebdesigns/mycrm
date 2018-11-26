@@ -8,7 +8,7 @@
 h1,h2,h3 {
     font-family: 'Lobster', cursive;
     text-align: center;
-    color: #43A689;
+    color: #247BA0;
 }
 
 .page-header {
@@ -30,13 +30,14 @@ h1,h2,h3 {
 	font-family: 'Allerta Stencil', sans-serif;
 	font-weight: bolder;
 	max-width: 300px;
-	background: #E3EFF4;
+	color: #F25F5C;
+
 }
 .col label {
 	font-family: 'Oswald', sans-serif;
 	font-weight: bold;
-	color: #B4C1A7;
+	color: #FFE066;
 }
-a {
-	color: white;
+a, a:hover {
+	color: #FFE066;
 }
