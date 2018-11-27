@@ -23,6 +23,7 @@ def detail(request, cid):
 		client.phone_4 = request.POST['phone_4']
 		client.dob = request.POST['dob']
 		client.ssn = request.POST['ssn']
+		client.notes = request.POST['notes']
 		client.save()
 		
 
