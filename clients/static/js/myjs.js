@@ -9,3 +9,8 @@ function readMode() {
 	document.getElementById('btncancel').hidden = true;
 	document.getElementById('btnsave').hidden = true;
 }
+
+function saveClient() {
+	
+	alert('Client information has been saved!');
+}

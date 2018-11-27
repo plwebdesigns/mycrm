@@ -12,8 +12,9 @@
 <body style="width: 65%; margin: 0 auto; background-color: #0F0F0F">
 	
 	<h1>{{ client.last_name }}, {{ client.first_name }}</h1>
-	<form action="" class="crmform" id="form1" name="form1">
-		<fieldset id="myfieldset" disabled="true">
+	<form action="{% url 'clients:detail' client.id %}" class="crmform" name="form1" method="POST">
+		{% csrf_token %}
+		<fieldset id="myfieldset">
 		<div class="row">
 			<div class="col">
 				<label for="first_name">First Name:</label>
@@ -51,7 +52,7 @@
 		<div class="row">
 			<div class="col">
 				<label for="city">City:</label>
-				<input class="form-control" type="text" value="{{ client.city }}" name="city">
+				<input class="form-control" type="text" name="city" value="{{ client.city }}">
 			</div>
 			<div class="col">
 				<label for="state">State:</label>
@@ -59,7 +60,7 @@
 			</div>
 			<div class="col">
 				<label for="Zipcode">Zipcode:</label>
-				<input class="form-control" type="text" value="{{ client.zipcode }}">
+				<input class="form-control" type="text" name="zipcode" value="{{ client.zipcode }}">
 			</div>
 		</div>
 		<div class="row">
@@ -118,9 +119,9 @@
 			<div class="col">
 				<label for="">Notes:</label>
 				{% if client.notes != None %}
-				<textarea class="form-control">{{ client.notes }}</textarea>
+				<textarea class="form-control" name="notes">{{ client.notes }}</textarea>
 				{% else %}
-				<textarea class="form-control">Notes Here....</textarea>
+				<textarea class="form-control" name="notes">Notes Here....</textarea>
 				{% endif %}
 			</div>
 		</div>
@@ -130,7 +131,7 @@
 			<div class="col">
 				<button type="button" class="btn btn-danger"><a href="{% url 'clients:clientList' %}">Back</a></button>
 				<button type="button" class="btn btn-danger" onclick="editMode()"><a href="#">Edit</a></button>
-				<button type="button" class="btn btn-danger" hidden="true" id="btnsave" onclick="readMode()">Save</button>
+				<button type="submit" class="btn btn-danger" hidden="true" id="btnsave">Save</button>
 				<button type="button" class="btn btn-danger" hidden="true" id="btncancel" onclick="readMode()">Cancel</button>
 			</div>
 		</div>	
