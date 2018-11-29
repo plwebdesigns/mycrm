@@ -18,6 +18,6 @@ def login(request):
 		return render(request, 'accounts/login.html')
 
 
-def logout_view(request):
+def logout(request):
 	logout(request)
-	return render(request, 'accounts/login.html')
+	return render(request, 'indexapp/index.html')
