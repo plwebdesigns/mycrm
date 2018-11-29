@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body style="margin: 0 auto; width: 50%;">
+	<h1>Login to CRM</h1>
+	
+	<form method="POST" name="loginForm" class="loginForm">
+		{% csrf_token %}
+		<div class="row" style="padding: 50px 0;">
+			<div class="col">
+				<input type="text" name="username" class="form-control" placeholder="Enter Username">
+			</div>
+		</div>
+		<div class="row" style="padding-bottom: 20px">
+			<div class="col">
+				<input type="password" name="password" class="form-control" placeholder="Enter Password"><br>
+				<button type="submit" class="btn btn-dark">Login</button>
+			</div>
+		</div>
+	</form>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
+</body>
+</html>

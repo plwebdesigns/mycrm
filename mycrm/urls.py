@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include('indexapp.urls')),
     path('createEmployee/', include('employees.urls')),
     path('clientList/', include('clients.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

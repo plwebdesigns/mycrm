@@ -1,12 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from clients.models import Client
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required(login_url = '/accounts/login/')
 def clientList(request):
 	obj = Client.objects.all()[:50]
 	return render(request, 'clients/clientList.html', {'clients': obj})
 
-
+@login_required(login_url = '/accounts/login/')
 def detail(request, cid):
 	client = get_object_or_404(Client, pk=cid)
 	if request.method == 'POST':
