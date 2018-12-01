@@ -1,23 +1,23 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout
+from django.contrib.auth.views import login, logout, authenticate
 
 # Create your views here.
-def login(request):
+def login_view(request):
 	if request.method == 'POST':
 		username = request.POST['username']
 		password = request.POST['password']
 		user = authenticate(request, username=username, password=password)
 		if user is not None:
 			login(request, user)
-			return redirect('clientList/' request.POST['next'])
+			return redirect('clientList/', request.POST['next'])
 		else:
-			error_message='Please login first'
 			return render(request,'accounts/login.html')
 
 	else:
 		return render(request, 'accounts/login.html')
 
 
-def logout(request):
+def logout_view(request):
 	logout(request)
-	return render(request, 'indexapp/index.html')
+	return redirect('clientList/')
+

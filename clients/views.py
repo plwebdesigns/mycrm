@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from clients.models import Client
 from django.contrib.auth.decorators import login_required
+from .forms import createForm
 
 # Create your views here.
 @login_required(login_url = '/accounts/login/')
@@ -33,4 +34,17 @@ def detail(request, cid):
 
 	else:
 		return render(request, 'clients/clientDetail.html', {'client': client})
+
+
+def create(request):
+	if request.method == 'POST':
+		form = createForm(request.POST)
+		form.save()
+		return redirect('/clientCreate/')
+
+	else:
+		form = createForm()
+		return render(request, 'clients/clientCreate.html', {'form': form})
+
+
 
