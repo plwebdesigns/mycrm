@@ -25,4 +25,5 @@ urlpatterns = [
     path('clientList/', include('clients.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('clientCreate/', client_views.create),
+    path('clientDelete/', client_views.deleteClient),
 ]

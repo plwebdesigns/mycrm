@@ -6,7 +6,7 @@ from .forms import createForm
 # Create your views here.
 @login_required(login_url = '/accounts/login/')
 def clientList(request):
-	obj = Client.objects.all()[:50]
+	obj = Client.objects.order_by('id')[:50]
 	return render(request, 'clients/clientList.html', {'clients': obj})
 
 @login_required(login_url = '/accounts/login/')
@@ -46,5 +46,11 @@ def create(request):
 		form = createForm()
 		return render(request, 'clients/clientCreate.html', {'form': form})
 
+def deleteClient(request, cid):
+	obj = get_object_or_404(Client, pk=cid)
+	if request.method == 'POST':
+		obj.delete()
 
+		return redirect('/clientList/')
 
+	return render(request, 'clients/clientDelete.html', {'obj': obj})
