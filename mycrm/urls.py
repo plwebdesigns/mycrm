@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from clients import views as client_views
+from employees import views as employee_views
 
 
 urlpatterns = [
@@ -26,4 +27,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('clientCreate/', client_views.create),
     path('clientDelete/', client_views.deleteClient),
+    path('employeeList/', employee_views.empList),
 ]
