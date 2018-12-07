@@ -22,10 +22,10 @@ from employees import views as employee_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('indexapp.urls')),
-    path('createEmployee/', include('employees.urls')),
     path('clientList/', include('clients.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('clientCreate/', client_views.create),
     path('clientDelete/', client_views.deleteClient),
-    path('employeeList/', employee_views.empList),
+    path('employeeList/', include('employees.urls')),
+    path('detail/<int:pk>/', employee_views.DetailView),
 ]

@@ -1,0 +1,31 @@
+{% extends 'basic.html' %}
+{% block content %}
+	<h1>{{ employee.last_name }}, {{ employee.first_name }}</h1>
+	<div class="container">
+		<div class="row">
+
+			<div class="col-sm">
+				<ul class="list-group">
+					<li class="list-group-item">{{ employee.first_name }}</li>
+					<li class="list-group-item">{{ employee.address_1 }}</li>
+					<li class="list-group-item">{{ employee.city }}</li>
+					<li class="list-group-item">{{ employee.zipcode }}</li>
+					<li class="list-group-item">{{ employee.phone_2 }}</li>
+					<li class="list-group-item">{{ employee.ssn }}</li>
+					<li class="list-group-item">{{ employee.manager }}</li>
+				</ul>
+			</div>
+			<div class="col-sm">
+				<ul class="list-group">
+					<li class="list-group-item">{{ employee.last_name }}</li>
+					<li class="list-group-item">{{ employee.address_2 }}</li>
+					<li class="list-group-item">{{ employee.state }}</li>
+					<li class="list-group-item">{{ employee.phone_1 }}</li>
+					<li class="list-group-item">{{ employee.dob }}</li>
+					<li class="list-group-item">{{ employee.department }}</li>
+					<li class="list-group-item">{{ employee.salary }}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+{% endblock %}

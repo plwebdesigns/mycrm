@@ -8,7 +8,7 @@
 h1,h2,h3 {
     font-family: 'Lobster', cursive;
     text-align: center;
-    color: #43A689;
+    color: #247BA0;
 }
 
 .page-header {
@@ -30,13 +30,39 @@ h1,h2,h3 {
 	font-family: 'Allerta Stencil', sans-serif;
 	font-weight: bolder;
 	max-width: 300px;
-	background: #E3EFF4;
+	color: #F25F5C;
+
 }
 .col label {
 	font-family: 'Oswald', sans-serif;
 	font-weight: bold;
-	color: #B4C1A7;
+	color: #FFE066;
 }
-a {
-	color: white;
+a, a:hover {
+	color: #FFE066;
 }
+
+.loginForm {
+	background: #FFE000;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #799F0C, #FFE000);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #799F0C, #FFE000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.loginForm div.col {
+	margin: 0 25%;
+}
+.indexPage {
+	background: #200122;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #6f0000, #200122);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #6f0000, #200122); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	width: 60%;
+	margin: 0 auto;
+
+}
+
+div.jumbotron {
+	background: #FFE000;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #799F0C, #FFE000);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #799F0C, #FFE000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* Employee */
