@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'mycrm.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mycrm',
-        'USER': 'paul',
-        'PASSWORD': 'kraker00',
-        'HOST': 'localhost',
+        'NAME': 'dcm0gvm58dumrk',
+        'USER': 'sggqpddsalemog',
+        'PASSWORD': 'ca4a3d53f7d9e66bf282156d17532ac5a542e3598c7ccaf185582e298d184b2d',
+        'HOST': 'ec2-54-197-234-33.compute-1.amazonaws.com',
         'PORT': '5432'
     }
 }
