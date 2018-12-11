@@ -1,0 +1,30 @@
+{% extends 'basic.html' %}
+{% block content %}
+	<h1>{{ client.last_name }}, {{ client.first_name }}</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm">
+				<ul class="list-group">
+					<li class="list-group-item">{{ client.first_name }}</li>
+					<li class="list-group-item">{{ client.address_1 }}</li>
+					<li class="list-group-item">{{ client.city }}</li>
+					<li class="list-group-item">{{ client.zipcode }}</li>
+					<li class="list-group-item">{{ client.phone_2 }}</li>
+					<li class="list-group-item">{{ client.phone_4 }}</li>
+					<li class="list-group-item">{{ client.dob }}</li>
+				</ul>
+			</div>
+			<div class="col-sm">
+				<ul class="list-group">
+					<li class="list-group-item">{{ client.last_name }}</li>
+					<li class="list-group-item">{{ client.address_2 }}</li>
+					<li class="list-group-item">{{ client.state }}</li>
+					<li class="list-group-item">{{ client.phone_1 }}</li>
+					<li class="list-group-item">{{ client.phone_3 }}</li>
+					<li class="list-group-item">{{ client.ssn }}</li>
+					<li class="list-group-item">{{ client.notes }}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+{% endblock %}

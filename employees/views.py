@@ -1,4 +1,3 @@
-from django.shortcuts import render, get_object_or_404, get_list_or_404
 from .models import Employee
 from django.views import generic
 
@@ -16,4 +15,10 @@ class IndexView(generic.ListView):
 class DetailView(generic.DeleteView):
 	model = Employee
 	template_name = 'employees/detail.html'
-		
+	
+
+class UpdateView(generic.UpdateView):
+	model = Employee
+	fields = '__all__'
+	
+				

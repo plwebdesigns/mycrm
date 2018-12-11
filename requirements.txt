@@ -1,3 +1,8 @@
 django
 gunicorn
 django-heroku
+pip
+virtualenv
+dj-database-url
+django-heroku
+whitenoise

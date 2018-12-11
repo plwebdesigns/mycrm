@@ -28,4 +28,5 @@ urlpatterns = [
     path('clientDelete/', client_views.deleteClient),
     path('employeeList/', include('employees.urls')),
     path('detail/<int:pk>/', employee_views.DetailView),
+    path('edit/<int:pk>/', employee_views.UpdateView),
 ]

@@ -3,7 +3,7 @@
 	<h1>{{ employee.last_name }}, {{ employee.first_name }}</h1>
 	<div class="container">
 		<div class="row">
-
+			<button class="btn btn-outline-danger"><a href="{% url 'employees:update' employee.id %}">Edit</a></button>
 			<div class="col-sm">
 				<ul class="list-group">
 					<li class="list-group-item">{{ employee.first_name }}</li>
