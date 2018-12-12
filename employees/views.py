@@ -1,5 +1,6 @@
 from .models import Employee
 from django.views import generic
+from django.shortcuts import redirect
 
 
 # Create your views here.
@@ -20,5 +21,12 @@ class DetailView(generic.DeleteView):
 class UpdateView(generic.UpdateView):
 	model = Employee
 	fields = '__all__'
+	success_url = '/employeeList/'
 	
-				
+		
+class CreateView(generic.CreateView):
+		model = Employee
+		fields = '__all__'
+		template_name_suffix = '_create_form'
+		success_url = '/employeeList/'
+						

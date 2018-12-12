@@ -2,16 +2,20 @@
 
 {% block content %}
 	<h1>{{ employee.last_name }}, {{ employee.first_name }} ID: {{ employee.id }}</h1>
-		{% csrf_token %}
-		<div class="form-group" style="background: #191924">
-			<table>
-			{% for field in form %}		
-				<tr class="row">
-					<td class="col">{{ field.label_tag }}</td>
-					<td class="col"> {{ field }}</td>
-					<td>{{ field.errors }}</td>
-				</tr>
-			{% endfor %}
-			</table>
-		</div>
+		
+		<form method="POST" action="editEmployee">
+			{% csrf_token %}
+			<div class="form-group" style="background: #191924;">
+				<table style="margin: 20px 15px">
+				{% for field in form %}		
+					<tr class="row">
+						<td class="col">{{ field.label_tag }}</td>
+						<td class="col"> {{ field }}</td>
+						<td>{{ field.errors }}</td>
+					</tr>
+				{% endfor %}
+				</table>
+				<button class="btn btn-outline-danger btn-lg" type="submit">Update</button>
+			</div>
+		</form>
 {% endblock %}
