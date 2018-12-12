@@ -1,0 +1,9 @@
+{% extends 'basic.html' %}
+{% block content %}
+	<form method="POST">
+		{% csrf_token %}
+		<p>ARE YOU SURE YOU WANT TO DELETE {{ employee.last_name }}, {{ employee.first_name }}??</p>
+		<button type="submit" class="btn btn-danger">Confirm</button>
+	</form>
+
+	{% endblock %}

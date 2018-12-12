@@ -30,4 +30,5 @@ urlpatterns = [
     path('detail/<int:pk>/', employee_views.DetailView),
     path('edit/<int:pk>/', employee_views.UpdateView),
     path('employeeCreate/', employee_views.CreateView),
+    path('delete/<int:pk>/', employee_views.DeleteView),
 ]
