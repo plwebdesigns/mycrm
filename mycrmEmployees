@@ -1,0 +1,137 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 10.5
+-- Dumped by pg_dump version 10.5
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Data for Name: employees_employee; Type: TABLE DATA; Schema: public; Owner: paul
+--
+
+COPY public.employees_employee (id, first_name, last_name, address_1, address_2, city, state, zipcode, phone_1, phone_2, dob, ssn, department, manager, salary) FROM stdin;
+5	Amity	Tonkinson	2422 Montana Plaza	\N	San Francisco	CA	94159	415-391-9910	202-770-7106	11/18/1985	652-24-0867	Legal	Amity Tonkinson	144824.51
+6	Marlin	Di Antonio	944 Washington Alley	\N	Denver	CO	80270	303-274-8911	727-765-3810	6/9/1989	229-93-1987	Training	Marlin Di Antonio	58039.66
+7	Kelcey	Amott	839 Raven Hill	\N	San Antonio	TX	78291	210-128-1448	937-916-1801	1/18/1985	443-87-0333	Legal	Kelcey Amott	86426.08
+8	Flynn	Collingridge	05 Messerschmidt Point	\N	Dallas	TX	75241	972-981-5336	254-769-9930	12/16/1986	225-90-2355	Training	Flynn Collingridge	39162.03
+9	Paquito	Hauck	203 Alpine Circle	\N	Asheville	NC	28815	828-158-4898	515-148-7772	1/9/1995	535-30-0774	Sales	Paquito Hauck	127805.12
+10	Celie	Berthe	8441 Farmco Alley	\N	Washington	DC	20530	202-696-4755	718-944-8761	7/11/1977	801-62-4227	Research and Development	Celie Berthe	137297.83
+11	Pietrek	Costain	788 American Crossing	\N	Fort Pierce	FL	34949	772-545-2805	863-560-7083	6/12/1996	122-12-5475	Product Management	Pietrek Costain	123534.28
+12	Jerrold	Waddams	9 Moose Circle	\N	San Antonio	TX	78250	210-120-7712	469-297-1950	2/14/1983	882-89-2046	Product Management	Jerrold Waddams	40498.74
+13	Griffy	Frentz	3499 Grim Way	\N	Terre Haute	IN	47812	812-272-7285	775-180-7008	11/29/1987	896-03-8827	Sales	Griffy Frentz	75114.64
+14	Clive	Turbayne	93 Cody Circle	\N	Murfreesboro	TN	37131	615-770-1758	719-820-5861	2/22/1995	462-50-4045	Human Resources	Clive Turbayne	109715.95
+15	Wilton	Senecaux	44 Prairieview Lane	\N	Memphis	TN	38126	901-267-8606	413-915-7211	4/17/1991	115-27-9893	Human Resources	Wilton Senecaux	76584.23
+16	Niles	Harman	837 Mosinee Junction	\N	Oklahoma City	OK	73197	405-533-5199	315-133-0827	12/27/1975	413-72-2787	Human Resources	Niles Harman	69899.86
+17	Reuven	Lazell	46160 Village Pass	\N	Scottsdale	AZ	85260	602-357-4299	626-826-1369	3/28/1975	497-31-0861	Legal	Reuven Lazell	36765.17
+18	Caz	Ewan	82402 Tony Trail	\N	San Jose	CA	95133	408-302-3884	713-756-0517	12/30/1991	465-84-9434	Services	Caz Ewan	141711.65
+19	Isiahi	Cardow	6321 Anderson Point	\N	Atlanta	GA	31119	770-278-4141	714-110-4172	9/28/1983	757-37-3922	Training	Isiahi Cardow	140131.34
+20	Byrle	Stilling	486 Dwight Terrace	\N	El Paso	TX	79968	915-921-6403	713-526-9746	12/18/1976	358-71-2569	Human Resources	Byrle Stilling	54197.28
+21	Saunderson	Frunks	551 Thompson Park	\N	Jacksonville	FL	32209	904-849-0073	813-996-7293	6/17/1975	344-17-7077	Research and Development	Saunderson Frunks	137083.23
+22	Missy	Allsopp	88 Ruskin Court	\N	Oklahoma City	OK	73173	405-587-8729	512-650-8520	6/29/1984	106-23-1192	Sales	Missy Allsopp	55341.11
+23	Hatty	Kitchingman	282 School Road	\N	Colorado Springs	CO	80995	719-610-1901	330-257-8105	5/14/1983	173-62-5116	Product Management	Hatty Kitchingman	146441.61
+24	Aridatha	Hedgeley	4739 Hermina Way	\N	Eugene	OR	97405	541-678-6153	757-202-0123	2/1/1989	869-80-8408	Business Development	Aridatha Hedgeley	63367.16
+25	Ailbert	Bryden	4 Corry Junction	\N	Richmond	VA	23260	804-958-5486	765-795-3951	6/2/1999	336-69-3938	Training	Ailbert Bryden	50337.25
+26	Seana	Niese	9 Pepper Wood Avenue	\N	Fort Worth	TX	76178	682-143-4171	323-802-9206	5/27/1997	726-72-6795	Product Management	Seana Niese	145811.99
+27	Guendolen	Walwood	938 Homewood Circle	\N	Little Rock	AR	72222	501-112-2672	952-841-3815	3/14/1999	301-71-2683	Research and Development	Guendolen Walwood	51283.86
+28	Regina	Limerick	925 Warbler Park	\N	Springfield	VA	22156	571-732-9871	305-654-2700	2/19/1979	732-77-0347	Legal	Regina Limerick	68338.49
+29	Myrta	Sykora	998 Burrows Point	\N	Atlanta	GA	31196	404-400-7368	215-372-3243	6/19/1987	239-30-9656	Marketing	Myrta Sykora	96128.54
+30	Heloise	Tanslie	5 Tennyson Parkway	\N	Fort Worth	TX	76162	682-868-4316	904-796-2617	12/6/1976	292-93-1636	Support	Heloise Tanslie	105372.65
+31	Konstantine	Barttrum	5 Cody Drive	\N	Huntington	WV	25709	304-137-9897	239-531-1064	11/3/1979	351-17-7860	Support	Konstantine Barttrum	122749.57
+32	Nikolos	Tuxell	51218 Mcguire Lane	\N	Phoenix	AZ	85053	602-906-0139	361-525-5598	1/2/1993	597-96-3684	Services	Nikolos Tuxell	123756.28
+33	Emlen	May	8 Atwood Center	\N	Orlando	FL	32868	407-730-6865	859-479-8629	4/20/1985	206-26-1364	Product Management	Emlen May	96344.26
+34	Ramonda	Hadingham	2056 Farmco Road	\N	Salt Lake City	UT	84130	801-500-0736	303-864-6801	12/29/1978	623-49-7853	Business Development	Ramonda Hadingham	140963.74
+35	Melisa	Cudbertson	8275 Weeping Birch Alley	\N	Washington	DC	20244	202-743-5084	713-215-7923	6/17/1979	324-85-3730	Sales	Melisa Cudbertson	71717.14
+36	Kayne	Sloane	33 Nevada Court	\N	Lexington	KY	40524	859-523-6998	614-352-6539	9/20/1986	160-32-9105	Services	Kayne Sloane	137070.69
+37	Sven	McMakin	06942 Magdeline Center	\N	Baton Rouge	LA	70805	225-685-9960	619-390-2111	2/20/1997	689-72-3680	Engineering	Sven McMakin	73521.31
+38	Moll	Mouan	6019 Kenwood Park	\N	Las Vegas	NV	89140	702-300-2176	304-783-8660	1/16/1978	688-27-5535	Accounting	Moll Mouan	63656.89
+39	Ingaborg	Dombrell	90 Tomscot Drive	\N	San Francisco	CA	94132	415-712-7109	504-696-5233	7/22/1999	187-33-0295	Business Development	Ingaborg Dombrell	74939.86
+40	Augustine	Shirt	7 Monica Circle	\N	Spokane	WA	99205	509-435-5670	540-798-6894	3/21/1992	162-59-5880	Human Resources	Augustine Shirt	95425.98
+41	Harwell	Buttwell	32162 Kinsman Street	\N	San Bernardino	CA	92405	909-761-1841	202-319-6908	10/7/1988	222-09-8465	Marketing	Harwell Buttwell	51666.48
+42	Aggy	Khrishtafovich	544 Arizona Junction	\N	Moreno Valley	CA	92555	951-783-4521	202-356-3003	12/15/1993	624-18-8765	Product Management	Aggy Khrishtafovich	124634.38
+43	Edie	Peel	03807 Hoard Plaza	\N	Toledo	OH	43615	419-421-1031	323-156-8665	5/8/1981	571-01-1925	Services	Edie Peel	82405.15
+44	Shaun	Reiglar	5450 Scoville Junction	\N	Trenton	NJ	08603	609-587-7977	505-454-5804	8/15/1979	674-80-1021	Services	Shaun Reiglar	94619.26
+4	Kora	Bodicum	636 Sugar Avenue	#332	Kansas City	MO	64130	816-788-9009	770-875-4972	12/29/1977	681-07-2100	Business Development	Kora Bodicum	80942.75
+2	Lanee	Tapping	6 Hoffman Terrace		Oklahoma City	OK	73109	405-778-6588	240-456-7627	7/22/1977	854-16-7425	Human Resources	Lane Tapping	147191.39
+45	Hewitt	Schrei	8 Lakewood Gardens Terrace	\N	Palm Bay	FL	32909	561-409-8100	202-719-7688	3/5/1997	781-83-8820	Business Development	Hewitt Schrei	112764.57
+46	Lambert	Prue	3277 Daystar Lane	\N	New Orleans	LA	70154	504-199-3929	917-966-1613	1/10/1997	372-53-3553	Legal	Lambert Prue	51113.38
+47	Gard	Batch	89980 Carberry Terrace	\N	Van Nuys	CA	91499	213-843-3937	850-634-5526	11/8/1996	879-27-9522	Business Development	Gard Batch	118490.05
+48	Cristabel	Timperley	70 Donald Court	\N	Charleston	SC	29424	843-740-4000	505-870-5348	4/3/1994	655-15-1249	Engineering	Cristabel Timperley	104023.31
+49	Sibilla	Tommei	2 Knutson Avenue	\N	Saint Louis	MO	63110	314-585-6197	334-350-6857	1/11/1980	574-18-9239	Services	Sibilla Tommei	119991.95
+50	Claudine	Whistlecroft	4666 Daystar Crossing	\N	Austin	TX	78749	512-915-6454	404-853-0252	10/1/1994	708-17-4664	Training	Claudine Whistlecroft	102019.38
+51	Cross	Renshell	3 Caliangt Pass	\N	Cincinnati	OH	45264	513-949-0940	812-495-3990	12/10/1985	241-04-5141	Engineering	Cross Renshell	134307.12
+52	Borden	Othen	733 Forster Hill	\N	Littleton	CO	80161	720-541-7518	773-560-9996	11/18/1984	727-47-6234	Product Management	Borden Othen	61488.17
+53	Matthus	McKevany	4504 1st Court	\N	Gainesville	GA	30506	770-128-3604	941-852-3203	9/23/1990	765-38-0997	Human Resources	Matthus McKevany	55532.74
+54	Berni	Matfield	66340 Meadow Valley Park	\N	Indianapolis	IN	46226	317-760-9494	561-655-7029	5/6/1994	224-84-2973	Human Resources	Berni Matfield	104720.54
+55	Shoshanna	McNabb	4159 Vera Avenue	\N	Shreveport	LA	71151	318-259-1952	714-273-8111	8/5/1982	138-31-2992	Services	Shoshanna McNabb	122593.27
+56	Tamas	Fallis	9 Oakridge Avenue	\N	Dallas	TX	75231	469-970-6402	323-295-3138	6/19/1985	471-54-3222	Support	Tamas Fallis	97495.68
+57	Dale	Casewell	4 Amoth Trail	\N	Seattle	WA	98158	425-756-5270	540-986-8658	6/8/1997	794-30-8815	Sales	Dale Casewell	116158.14
+58	Maria	Vahl	2 Sage Parkway	\N	Tucson	AZ	85710	520-915-5951	678-611-3796	12/5/1979	633-89-8266	Business Development	Maria Vahl	38365.27
+59	Ferdinande	Comolli	25876 Orin Way	\N	Wilkes Barre	PA	18763	570-647-2848	901-696-3539	11/14/1994	836-98-0348	Support	Ferdinande Comolli	65693.23
+60	Falkner	Pughe	5154 Reinke Way	\N	Omaha	NE	68124	402-530-9601	202-178-5655	1/29/1991	624-18-1888	Business Development	Falkner Pughe	121681.03
+61	Daron	Samber	66 Transport Parkway	\N	Louisville	KY	40256	502-309-6031	904-817-8780	1/21/1976	790-10-6788	Research and Development	Daron Samber	145965.62
+62	Fairleigh	Newiss	434 Lakewood Avenue	\N	San Antonio	TX	78210	210-517-0235	404-435-3576	1/27/1988	841-36-7099	Business Development	Fairleigh Newiss	107884.22
+63	Christoforo	Mohun	8 Moland Parkway	\N	San Diego	CA	92165	619-198-0082	719-397-3185	2/28/1979	337-37-7440	Human Resources	Christoforo Mohun	135688.93
+64	Janos	Flori	7 Amoth Hill	\N	Washington	DC	20057	202-571-1385	813-434-0348	4/27/1975	336-96-6372	Engineering	Janos Flori	127580.19
+65	Reeba	Dall	02628 Melody Road	\N	Johnson City	TN	37605	423-632-5626	314-908-6898	10/1/1997	437-11-1586	Services	Reeba Dall	130442.46
+66	Deny	Agget	54361 Oak Center	\N	El Paso	TX	79940	915-904-9580	757-707-0306	3/3/1988	331-99-4583	Human Resources	Deny Agget	47237.00
+67	Elwyn	Dignam	14834 Lighthouse Bay Pass	\N	Clearwater	FL	33758	813-718-6047	319-213-8596	4/12/1981	284-34-1742	Training	Elwyn Dignam	75924.06
+68	Dre	Penman	6717 Pepper Wood Plaza	\N	Tucson	AZ	85754	520-459-0722	352-396-5387	10/1/1991	657-15-3684	Engineering	Dre Penman	55723.45
+69	Zacharie	Turrill	504 Mosinee Alley	\N	Cincinnati	OH	45233	513-723-7353	202-737-7537	12/31/1978	769-45-5157	Business Development	Zacharie Turrill	129932.20
+70	Delia	Terren	31945 Bartelt Junction	\N	Huntsville	AL	35815	256-267-0451	405-477-4163	2/27/1992	259-75-0671	Legal	Delia Terren	124498.33
+71	Lucie	Dodsworth	8403 Heath Pass	\N	Orlando	FL	32835	407-849-5078	540-461-4992	12/3/1995	587-76-0260	Business Development	Lucie Dodsworth	40396.73
+72	Gladys	Lebourn	08088 8th Drive	\N	Houston	TX	77050	281-294-6582	504-606-6188	1/16/1994	258-61-4730	Accounting	Gladys Lebourn	69992.63
+73	Marcel	Clegg	5 Bay Circle	\N	Wilmington	DE	19886	302-764-0976	202-347-9663	8/7/1981	874-62-0063	Human Resources	Marcel Clegg	108913.90
+74	Anastasia	Mottram	14313 Marquette Pass	\N	Buffalo	NY	14215	716-940-4389	904-806-8780	12/15/1981	484-96-3373	Human Resources	Anastasia Mottram	56746.71
+75	Minni	Cocher	0280 Heath Way	\N	Amarillo	TX	79176	806-960-9946	850-548-0880	3/9/1997	687-36-5886	Engineering	Minni Cocher	60393.51
+76	Jasen	Larose	1069 Schiller Place	\N	Sacramento	CA	95852	916-458-6448	505-821-5306	1/6/1981	368-93-9550	Research and Development	Jasen Larose	40487.20
+77	Lanny	Macek	2337 Dexter Terrace	\N	Spring	TX	77386	832-490-8349	813-893-3165	3/1/1988	683-63-1315	Sales	Lanny Macek	119001.66
+78	Leanna	Olkowicz	79410 Harbort Drive	\N	Clearwater	FL	34620	727-417-2948	720-633-7532	6/20/1978	763-76-6334	Legal	Leanna Olkowicz	103801.57
+79	Tamiko	Klinck	8 Hallows Parkway	\N	Miami	FL	33147	305-467-7726	915-913-0472	6/9/1999	376-85-7081	Product Management	Tamiko Klinck	42983.36
+80	Jeri	MacGeaney	5 Springs Junction	\N	Prescott	AZ	86305	928-982-3007	917-517-4548	3/17/1999	635-49-4348	Business Development	Jeri MacGeaney	69056.96
+81	Nelly	McRuvie	0 Northridge Lane	\N	Kansas City	KS	66112	816-127-1103	414-618-4357	7/31/1991	477-86-1979	Support	Nelly McRuvie	48527.04
+82	Ryley	Maddern	9 Warner Road	\N	Mobile	AL	36610	251-493-8590	916-243-5332	2/21/1991	582-77-9645	Research and Development	Ryley Maddern	57208.39
+83	Rozanna	Springtorpe	89665 Huxley Place	\N	Roanoke	VA	24024	540-511-8676	253-626-8362	6/23/1998	531-94-0774	Product Management	Rozanna Springtorpe	143812.99
+84	Damara	Hendrik	032 2nd Point	\N	Henderson	NV	89074	702-321-8636	408-683-5466	6/3/1983	511-17-8128	Research and Development	Damara Hendrik	80749.35
+85	Eloise	McGuinley	35 Tony Trail	\N	Roanoke	VA	24029	540-665-6841	210-567-9988	12/27/1998	689-50-7561	Marketing	Eloise McGuinley	138074.80
+86	Daffie	Manske	70661 Coolidge Crossing	\N	Buffalo	NY	14225	716-678-9477	818-338-2664	10/11/1983	109-81-7228	Legal	Daffie Manske	121094.52
+87	Cariotta	Demange	5525 Judy Hill	\N	Portland	OR	97286	503-942-6662	817-532-2682	11/5/1975	821-25-8529	Training	Cariotta Demange	42319.32
+88	Claudian	Matessian	932 Bayside Crossing	\N	Phoenix	AZ	85053	602-644-1810	609-566-3355	1/6/1994	312-76-8344	Engineering	Claudian Matessian	59025.42
+89	Forrester	Aron	59547 Crescent Oaks Place	\N	Detroit	MI	48275	313-125-8869	916-935-4742	6/27/1998	797-38-6102	Product Management	Forrester Aron	94134.24
+90	Sherry	Zouch	29383 Village Circle	\N	Saint Paul	MN	55115	651-593-9364	850-936-5670	12/20/1976	236-43-0564	Human Resources	Sherry Zouch	46542.75
+91	Herby	Earngy	8285 Sloan Crossing	\N	Evansville	IN	47712	812-255-9820	207-398-1843	9/16/1999	470-71-7639	Marketing	Herby Earngy	106107.83
+92	Bryn	Crockatt	21858 Butternut Pass	\N	Austin	TX	78778	512-653-9082	850-277-7563	1/5/1977	844-04-3934	Product Management	Bryn Crockatt	87067.89
+93	Florentia	Yorkston	21 Springs Drive	\N	Chattanooga	TN	37450	423-845-5247	805-338-6510	7/1/1975	625-21-9325	Sales	Florentia Yorkston	100048.92
+94	Daryl	Simonini	266 Hazelcrest Court	\N	Minneapolis	MN	55480	612-585-4594	802-895-0472	5/8/1978	616-09-4444	Product Management	Daryl Simonini	79778.05
+95	Budd	Youell	52 Twin Pines Center	\N	Edmond	OK	73034	405-118-9830	361-459-2554	3/12/1984	691-90-9241	Accounting	Budd Youell	50573.72
+96	Bear	Kneebone	60858 Eagan Drive	\N	Atlanta	GA	30380	404-714-0737	770-546-7489	8/21/1990	377-38-9660	Product Management	Bear Kneebone	139252.79
+97	Kikelia	Mc Carrick	40 Del Mar Road	\N	San Jose	CA	95150	408-252-5208	630-228-5615	8/2/1986	411-18-4235	Engineering	Kikelia Mc Carrick	38051.69
+98	Ruthann	Spurier	1 Myrtle Park	\N	Portland	OR	97286	503-981-0979	260-689-0494	10/23/1977	437-34-3869	Research and Development	Ruthann Spurier	127706.28
+99	Les	McIvor	5 Starling Place	\N	Houston	TX	77260	713-356-2841	601-907-5031	12/4/1991	806-50-1674	Training	Les McIvor	95804.76
+100	Karrie	Cowser	6 Westport Junction	\N	Lubbock	TX	79415	806-727-1230	408-652-3970	11/8/1979	673-36-3176	Research and Development	Karrie Cowser	88842.19
+101	Nikki	McDonnell	6031 Scoville Drive	\N	Corona	CA	92883	626-215-3705	713-695-0683	2/23/1992	609-14-3676	Accounting	Nikki McDonnell	138134.43
+3	Cassi	Learmont	7341 American Ash Place	33	Chula Vista	CA	91913	619-642-4179	907-521-1668	6/2/1979	373-72-3745	Training	Cassi Learmont	38368.53
+102	Mark	Cuss	this is a test	123	mycity	fl	33433	5555555555				Telemarketing		900.00
+\.
+
+
+--
+-- Name: employees_employee_id_seq; Type: SEQUENCE SET; Schema: public; Owner: paul
+--
+
+SELECT pg_catalog.setval('public.employees_employee_id_seq', 102, true);
+
+
+--
+-- PostgreSQL database dump complete
+--
+

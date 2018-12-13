@@ -17,3 +17,7 @@ class Employee(models.Model):
     department = models.CharField(max_length=80, blank=True)
     manager = models.CharField(max_length=80, blank=True)
     salary = models.DecimalField(max_digits=12, decimal_places=2, blank=True)
+
+    def __str__(self):
+        template = '{0.last_name} {0.first_name}'
+        return template.format(self)
