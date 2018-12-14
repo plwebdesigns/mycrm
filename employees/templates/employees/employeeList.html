@@ -4,8 +4,8 @@
 
 	<div class="page-header">
 		<h1>Employee List</h1>
-		<button class="btn btn-outline-info" style="margin-bottom: 15px"><a href="{% url 'index' %}">Home</a></button>
-		<button class="btn btn-outline-info" style="margin-bottom: 15px"><a href="{% url 'logout' %}">Logout</a></button>
+		<a href="{% url 'index' %}" class="btn btn-outline-info" style="margin-bottom: 15px">Home</a>
+		<a href="{% url 'logout' %}" class="btn btn-outline-info" style="margin-bottom: 15px">Logout</a>
 	</div>
 	<div class="search"></div>
 	<table class="table" style="background-color: #191924;">
@@ -23,9 +23,9 @@
 			<tr>
 				<th class="row"><a href="{% url 'employees:detail' employee.id %}">{{ employee.id }}</a></th>
 				<td><a href="{% url 'employees:detail' employee.id %}">{{ employee.first_name }}</a></td>
-				<td><a>{{ employee.last_name }}</a></td>
-				<td><a>{{ employee.city }}</a></td>
-				<td><a>{{ employee.state }}</a></td>
+				<td><a href="{% url 'employees:detail' employee.id %}">{{ employee.last_name }}</a></td>
+				<td><a href="{% url 'employees:detail' employee.id %}">{{ employee.city }}</a></td>
+				<td><a href="{% url 'employees:detail' employee.id %}">{{ employee.state }}</a></td>
 			</tr>
 			{% endfor %}
 		</tbody>

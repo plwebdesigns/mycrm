@@ -29,8 +29,9 @@
 			</div>
 			
 		</div>
-		<button class="btn btn-outline-danger"><a href="{% url 'employees:update' employee.id %}">Edit</a></button>
-		<button class="btn btn-danger"><a href="{% url 'employees:delete' employee.id %}">DELETE</a></button>
+		<a href="{% url 'employees:update' employee.id %}" class="btn btn-danger">Edit</a>
+		<a href="{% url 'employees:employeeList' %}" class="btn btn-danger">Employee List</a>
+		<a href="{% url 'employees:delete' employee.id %}" class="btn btn-danger">DELETE</a>
 	</div>
 </div>
 {% endblock %}

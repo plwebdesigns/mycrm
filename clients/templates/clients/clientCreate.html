@@ -10,8 +10,8 @@
 </head>
 <body style="background-color: black">
 	<form action="{% url 'clients:create' %}" style="margin-top: 25px; margin-left: 10px;" method="POST">
-		<button class="btn btn-outline-info" style="margin-bottom: 15px"><a href="{% url 'index' %}">Home</a></button>
-		<button class="btn btn-outline-info" style="margin-bottom: 15px"><a href="{% url 'logout' %}">Logout</a></button><br>
+		<a href="{% url 'index' %}" class="btn btn-outline-info" style="margin-bottom: 15px">Home</a>
+		<a href="{% url 'logout' %}" class="btn btn-outline-info" style="margin-bottom: 15px">Logout</a><br>
 		{% csrf_token %}
 		<div class="form-group">
 			<table>
@@ -26,7 +26,7 @@
 		</div>
 		<div class="row">
 			<div class="col">
-				<button type="button" class="btn btn-outline-danger"><a href="{% url 'clients:clientList' %}">Client List</a></button>
+				<a href="{% url 'clients:clientList' %}" class="btn btn-outline-danger">Client List</a>
 				<button type="submit" class="btn btn-outline-danger" style="color: #FFE066">Save</button>
 			</div>
 		</div>
