@@ -4,10 +4,18 @@
 
 	<div class="page-header">
 		<h1>Employee List</h1>
-		<a href="{% url 'index' %}" class="btn btn-outline-info" style="margin-bottom: 15px">Home</a>
-		<a href="{% url 'logout' %}" class="btn btn-outline-info" style="margin-bottom: 15px">Logout</a>
+		<div class="row" style="margin-top: 35px">
+		<div class="col">
+			<a href="{% url 'index' %}" class="btn btn-outline-info" style="margin-bottom: 15px">Home</a>
+			<a href="{% url 'logout' %}" class="btn btn-outline-info" style="margin-bottom: 15px">Logout</a>
+		</div>
+		<div class="col">
+			<input type="text" name="txtfname" placeholder="First Name">
+			<input type="text" name="txtlname" placeholder="Last Name">
+			<button type="submit" class="btn btn-outline-danger">Search</button>
+		</div>
 	</div>
-	<div class="search"></div>
+	</div>
 	<table class="table" style="background-color: #191924;">
 		<thead style="color: #F25F5C;">
 			<tr>

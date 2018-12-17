@@ -22,9 +22,7 @@ h1,h2,h3 {
 	line-height: .2em;
 }
 
-.row div.col {
-	margin: 15px 0px;
-}
+
 
 .col input {
 	font-family: 'Allerta Stencil', sans-serif;
@@ -65,4 +63,3 @@ div.jumbotron {
 	background: linear-gradient(to right, #799F0C, #FFE000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-/* Employee */

@@ -1,18 +1,46 @@
+{% extends 'basic.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>This is a test</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-<body style="background-color: #0F0F0F; color: white;">
 
+{% block content %}
 	<div class="page-header">
-		<h1>Client List</h1>
-		<a href="{% url 'index' %}" class="btn btn-outline-info" style="margin-bottom: 15px">Home</a>
-		<a href="{% url 'logout' %}" class="btn btn-outline-info" style="margin-bottom: 15px">Logout</a>
+		<h1 style="margin-bottom: 100px">Client List</h1>
+		<div class="row">
+			<div class="col">
+				<a href="{% url 'index' %}" class="btn btn-outline-info" style="margin-bottom: 15px">Home</a>
+				<a href="{% url 'clients:clientList' %}" class="btn btn-outline-info" style="margin-bottom: 15px">Full List</a>
+			</div>
+			<div class="col">
+				<form method="GET">
+					<input type="textbox" name="last_name" placeholder="Last Name">
+					<button type="submit" class="btn btn-outline-danger">Search</button>
+				</form>
+			</div>
+			<div class="col">
+				<a href="{% url 'logout' %}" class="btn btn-outline-info" style="margin-left: 50%">Logout</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div>
+				    <span>
+				        {% if clients.has_previous %}
+				            <a href="?page=1">&laquo; first</a>
+				            <a href="?page={{ clients.previous_page_number }}">previous</a>
+				        {% endif %}
+
+				        <span class="current">
+				            Page {{ clients.number }} of {{ clients.paginator.num_pages }}.
+				        </span>
+
+				        {% if contacts.has_next %}
+				            <a href="?page={{ clients.next_page_number }}">next</a>
+				            <a href="?page={{ clients.paginator.num_pages }}">last &raquo;</a>
+				        {% endif %}
+				    </span>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="search"></div>
 	<table class="table">
@@ -26,7 +54,7 @@
 			</tr>	
 		</thead>
 		<tbody>
-			{% block content %}
+			
 			{% for client in clients.all %}
 			<tr>
 				<th class="row"><a href="{% url 'clients:detail' client.id %}">{{ client.id }}</a></th>
@@ -36,11 +64,7 @@
 				<td><a href="{% url 'clients:detail' client.id %}">{{ client.state }}</a></td>
 			</tr>
 			{% endfor %}
-			{% endblock %}
+			
 		</tbody>
 	</table>
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
-</body>
-</html>
+{% endblock %}

@@ -29,9 +29,13 @@
 			</div>
 			
 		</div>
-		<a href="{% url 'employees:update' employee.id %}" class="btn btn-danger">Edit</a>
-		<a href="{% url 'employees:employeeList' %}" class="btn btn-danger">Employee List</a>
-		<a href="{% url 'employees:delete' employee.id %}" class="btn btn-danger">DELETE</a>
+		<div class="row" style="padding-top: 10px">
+			<div class="col-sm">
+				<a href="{% url 'employees:update' employee.id %}" class="btn btn-danger">Edit</a>
+				<a href="{% url 'employees:employeeList' %}" class="btn btn-danger">Employee List</a>
+				<a href="{% url 'employees:delete' employee.id %}" class="btn btn-danger">DELETE</a>
+			</div>
+		</div>
 	</div>
 </div>
 {% endblock %}

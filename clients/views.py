@@ -2,12 +2,25 @@ from django.shortcuts import render, get_object_or_404, redirect
 from clients.models import Client
 from django.contrib.auth.decorators import login_required
 from .forms import createForm
+from django.views import generic
 
 # Create your views here.
-@login_required(login_url = '/accounts/login/')
-def clientList(request):
-	obj = Client.objects.order_by('id')[:50]
-	return render(request, 'clients/clientList.html', {'clients': obj})
+class clientList(generic.ListView):
+	template_name = 'clients/clientList.html'
+	context_object_name = 'clients'
+	paginate_by = 51
+
+	def get_queryset(self):
+		if self.request.method == 'GET' and self.request.GET:
+			if 'last_name' in self.request.GET:
+				if self.request.GET['last_name']:
+					searchtxt = self.request.GET.get('last_name', None)
+					return Client.objects.filter(last_name__icontains=searchtxt)
+				else:
+					return Client.objects.order_by('id')
+		else:
+			return Client.objects.order_by('id')
+		
 
 @login_required(login_url = '/accounts/login/')
 def detail(request, cid):
