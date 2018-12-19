@@ -8,7 +8,7 @@ from django.views import generic
 class clientList(generic.ListView):
 	template_name = 'clients/clientList.html'
 	context_object_name = 'clients'
-	paginate_by = 51
+	paginate_by = 25
 
 	def get_queryset(self):
 		if self.request.method == 'GET' and self.request.GET:
