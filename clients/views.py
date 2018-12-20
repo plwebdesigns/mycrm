@@ -1,7 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
 from clients.models import Client
-from django.contrib.auth.decorators import login_required
-from .forms import createForm
 from django.views import generic
 
 # Create your views here.
@@ -20,50 +17,24 @@ class clientList(generic.ListView):
 					return Client.objects.order_by('id')
 		else:
 			return Client.objects.order_by('id')
-		
 
-@login_required(login_url = '/accounts/login/')
-def detail(request, cid):
-	client = get_object_or_404(Client, pk=cid)
-	if request.method == 'POST':
-		client.first_name = request.POST['first_name']
-		client.last_name = request.POST['last_name']
-		client.address_1 = request.POST['address_1']
-		client.address_2 = request.POST['address_2']
-		client.city = request.POST['city']
-		client.state = request.POST['state']
-		client.zipcode = request.POST['zipcode']
-		client.phone_1 = request.POST['phone_1']
-		client.phone_2 = request.POST['phone_2']
-		client.phone_3 = request.POST['phone_3']
-		client.phone_4 = request.POST['phone_4']
-		client.dob = request.POST['dob']
-		client.ssn = request.POST['ssn']
-		client.notes = request.POST['notes']
-		client.save()
-		
+class DetailView(generic.DetailView):
+	model = Client
+	template_name = 'clients/clientDetail.html'
+	context_object_name = 'client'
 
-		return redirect('/clientList/' + str(cid))
+class UpdateView(generic.UpdateView):
+	model = Client
+	fields = '__all__'
+	success_url = '/clientList'
 
-	else:
-		return render(request, 'clients/clientDetail.html', {'client': client})
+class CreateView(generic.CreateView):
+	model = Client
+	fields = '__all__'
+	template_name_suffix = '_create_form'
+	success_url = '/clientList'
 
+class DeleteView(generic.DeleteView):
+	model = Client
+	success_url = '/clientList'
 
-def create(request):
-	if request.method == 'POST':
-		form = createForm(request.POST)
-		form.save()
-		return redirect('/clientCreate/')
-
-	else:
-		form = createForm()
-		return render(request, 'clients/clientCreate.html', {'form': form})
-
-def deleteClient(request, cid):
-	obj = get_object_or_404(Client, pk=cid)
-	if request.method == 'POST':
-		obj.delete()
-
-		return redirect('/clientList/')
-
-	return render(request, 'clients/clientDelete.html', {'obj': obj})

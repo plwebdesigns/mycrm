@@ -1,134 +1,42 @@
 {% extends 'basic.html' %}
-{% load static %}
-
-{% block content %}	
+{% block content %}
 	<h1>{{ client.last_name }}, {{ client.first_name }}</h1>
-	
-	<form action="{% url 'clients:detail' client.id %}" 
-	class="crmform" name="form1" method="POST" style="width: 60%; margin: 0 auto;">
-		{% csrf_token %}
-		<fieldset id="myfieldset">
+	<div style="background-color: #191924; padding: 50px 25px">
+		<div class="container">
 		<div class="row">
-			<div class="col">
-				<label for="first_name">First Name:</label>
-				<input class="form-control" type="text" value="{{ client.first_name }}" name="first_name">
+			
+			<div class="col-sm">
+				<ul class="list-group">
+					<li class="list-group-item">{{ client.first_name }}</li>
+					<li class="list-group-item">{{ client.address_1 }}</li>
+					<li class="list-group-item">{{ client.city }}</li>
+					<li class="list-group-item">{{ client.zipcode }}</li>
+					<li class="list-group-item">{{ client.phone_2 }}</li>
+					<li class="list-group-item">{{ client.ssn }}</li>
+					<li class="list-group-item">{{ client.manager }}</li>
+				</ul>
 			</div>
-			<div class="col">
-				<label for="last_name">Last Name:</label>
-				{% if client.last_name != None  %}
-				<input class="form-control" type="text" name="last_name" value="{{ client.last_name }}">
-				{% else %}
-				<input class="form-control" type="text" name="last_name" placeholder="Last Name">
-				{% endif %}
-
+			<div class="col-sm">
+				<ul class="list-group">
+					<li class="list-group-item">{{ client.last_name }}</li>
+					<li class="list-group-item">{{ client.address_2 }}</li>
+					<li class="list-group-item">{{ client.state }}</li>
+					<li class="list-group-item">{{ client.phone_1 }}</li>
+					<li class="list-group-item">{{ client.dob }}</li>
+					<li class="list-group-item">{{ client.department }}</li>
+					<li class="list-group-item">{{ client.salary }}</li>
+				</ul>
 			</div>
-			<div class="col">
-				<label for="id">ID:</label>
-				<input class="form-control" type="text" value="{{ client.id }}">
+			
+		</div>
+		<div class="row" style="padding-top: 10px">
+			<div class="col-sm">
+				
+				<a href="{% url 'clients:clientList' %}" class="btn btn-danger">Client List</a>
+				<a href="{% url 'clients:update' client.id %}" class="btn btn-danger">Edit</a>
+				<a href="{% url 'clients:deleteClient' client.id %}" class="btn btn-danger">Delete</a>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col">
-				<label for="">Address</label>
-				<input class="form-control" type="text" value="{{ client.address_1 }}" name="address_1" style="max-width: 450px;">
-			</div>
-			<div class="col">
-				<label for="address_2">Address 2</label>
-				{% if client.address_2 != None  %}
-				<input class="form-control" type="text" name="address_2" value="{{ client.address_2 }}" style="max-width: 450px;">
-				{% else %}
-				<input class="form-control" type="text" name="address_2" placeholder="Address" style="max-width: 450px;">
-				{% endif %}
-
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<label for="city">City:</label>
-				<input class="form-control" type="text" name="city" value="{{ client.city }}">
-			</div>
-			<div class="col">
-				<label for="state">State:</label>
-				<input class="form-control" type="text" name="state" value="{{ client.state }}">
-			</div>
-			<div class="col">
-				<label for="Zipcode">Zipcode:</label>
-				<input class="form-control" type="text" name="zipcode" value="{{ client.zipcode }}">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<label for="phone_1">Phone 1:</label>
-				{% if client.phone_1 != None  %}
-				<input class="form-control" type="text" name="phone_1" value="{{ client.phone_1 }}">
-				{% else %}
-				<input class="form-control" type="text" name="phone_1" placeholder="Phone">
-				{% endif %}
-			</div>
-			<div class="col">
-				<label for="phone_2">Phone 2:</label>
-				{% if client.phone_2 != None  %}
-				<input class="form-control" type="text" name="phone_2" value="{{ client.phone_2 }}">
-				{% else %}
-				<input class="form-control" type="text" name="phone_2" placeholder="Phone">
-				{% endif %}
-			</div>
-			<div class="col">
-				<label for="phone_3">Phone 3:</label>
-				{% if client.phone_3 != None  %}
-				<input class="form-control" type="text" name="phone_3" value="{{ client.phone_3 }}">
-				{% else %}
-				<input class="form-control" type="text" name="phone_3" placeholder="Phone">
-				{% endif %}
-			</div>
-			<div class="col">
-				<label for="phone_4">Phone 4:</label>
-				{% if client.phone_4 != None  %}
-				<input class="form-control" type="text" name="phone_4" value="{{ client.phone_4 }}">
-				{% else %}
-				<input class="form-control" type="text" name="phone_4" placeholder="Phone">
-				{% endif %}
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<label for="ssn">SSN:</label>
-				{% if client.ssn != None  %}
-				<input class="form-control" type="text" name="ssn" value="{{ client.ssn }}">
-				{% else %}
-				<input class="form-control" type="text" name="ssn" placeholder="SSN">
-				{% endif %}
-			</div>
-			<div class="col">
-				<label for="dob">DOB:</label>
-				{% if client.dob != None  %}
-				<input class="form-control" type="text" name="dob" value="{{ client.dob }}">
-				{% else %}
-				<input class="form-control" type="text" name="dob" placeholder="DOB">
-				{% endif %}
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<label for="notes">Notes:</label>
-				{% if client.notes != None %}
-				<textarea class="form-control" name="notes">{{ client.notes }}</textarea>
-				{% else %}
-				<textarea class="form-control" name="notes" placeholder="Notes go here..."></textarea>
-				{% endif %}
-			</div>
-		</div>
-		</fieldset>	
-
-		<div class="row">
-			<div class="col">
-				<a href="{% url 'clients:clientList' %}" class="btn btn-outline-danger">Client List</a>
-				<button type="submit" class="btn btn-outline-danger" style="color: #FFE066">Save</button>
-				<a href="{% url 'clients:deleteClient' client.id %}" class="btn btn-outline-danger">DELETE</a>
-			</div>
-			<div class="col">
-				<button class="btn btn-outline-info" style="margin-bottom: 15px; "><a href="{% url 'logout' %}">Logout</a></button>
-			</div>
-		</div>	
-	</form>
+	</div>
+</div>
 {% endblock %}
