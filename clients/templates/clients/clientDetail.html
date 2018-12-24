@@ -27,7 +27,15 @@
 					<li class="list-group-item">{{ client.salary }}</li>
 				</ul>
 			</div>
-			
+		</div>
+		<div class="row">
+			<div class="col-lg" style="color: yellow">
+				<ul>
+					{% for deal in deal_list %}
+						<li>{{ deal }}</li>
+					{% endfor %}
+				</ul>
+			</div>
 		</div>
 		<div class="row" style="padding-top: 10px">
 			<div class="col-sm">

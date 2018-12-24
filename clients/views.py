@@ -1,4 +1,5 @@
-from clients.models import Client
+from .models import Client
+from deals.models import Deals
 from django.views import generic
 
 # Create your views here.
@@ -22,6 +23,13 @@ class DetailView(generic.DetailView):
 	model = Client
 	template_name = 'clients/clientDetail.html'
 	context_object_name = 'client'
+
+	def get_context_data(self, **kwargs):
+		    context = super(DetailView, self).get_context_data(**kwargs)
+		    #Get slug(client id)
+		    cid = self.kwargs['pk']
+		    context['deal_list'] = Deals.objects.filter(client_id_id=cid)
+		    return context
 
 class UpdateView(generic.UpdateView):
 	model = Client

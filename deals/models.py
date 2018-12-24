@@ -12,5 +12,5 @@ class Deals(models.Model):
     payments_purchased = models.IntegerField()
 
     def __str__(self):
-        template = '{0.id} --${0.gross_amount}'
+        template = 'Deal ID: {0.id} -Employee ID: {0.employee_id_id} --${0.gross_amount}'
         return template.format(self)
