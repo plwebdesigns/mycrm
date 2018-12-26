@@ -1,0 +1,48 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+
+{% block content %}
+	<div class="page-header">
+		<h1 style="margin-bottom: 100px">deal List</h1>
+		<div class="row">
+			<div class="col">
+				
+			</div>
+			<div class="col">
+				<form method="GET">
+					<input type="textbox" name="last_name" placeholder="Last Name">
+					<button type="submit" class="btn btn-outline-danger">Search</button>
+				</form>
+			</div>
+			<div class="col">
+				<a href="{% url 'logout' %}" class="btn btn-outline-info float-right">Logout</a>
+			</div>
+		</div>
+	</div>
+	<div class="search"></div>
+	<table class="table">
+		<thead style="color: #F25F5C">
+			<tr>
+				<th scope="col">Deal ID</th>
+				<th scope="col">First Name</th>
+				<th scope="col">Last Name</th>
+				<th scope="col">City</th>
+				<th scope="col">State</th>
+			</tr>	
+		</thead>
+		<tbody>
+			
+			{% for deal in deals.all %}
+			<tr>
+				<th class="row"><a href="">{{ deal.id }}</a></th>
+				<td><a href="">{{ deal.gross_amount }}</a></td>
+				<td><a href="">{{ deal.net_amount }}</a></td>
+				<td><a href="">{{ deal.payments_purchased }}</a></td>
+				<td><a href="">{{ deal.client_id_id }}</a></td>
+			</tr>
+			{% endfor %}
+			
+		</tbody>
+	</table>
+{% endblock %}
