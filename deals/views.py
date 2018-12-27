@@ -9,3 +9,9 @@ class DealsListView(generic.ListView):
 
 	def get_queryset(self):
 		return Deals.objects.all()
+
+
+class DealsDetailView(generic.DetailView):
+	model = Deals
+	template_name = 'deals/DealsDetail.html'
+	context_object_name = 'deal'

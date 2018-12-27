@@ -10,14 +10,21 @@ class clientList(generic.ListView):
 
 	def get_queryset(self):
 		if self.request.method == 'GET' and self.request.GET:
-			if 'last_name' in self.request.GET:
+			if 'id' in self.request.GET:
+				if self.request.GET['id']:
+					searchtxt = self.request.GET.get('id', None)
+					return Client.objects.filter(id__icontains=searchtxt)
+
 				if self.request.GET['last_name']:
 					searchtxt = self.request.GET.get('last_name', None)
 					return Client.objects.filter(last_name__icontains=searchtxt)
+
 				else:
-					return Client.objects.order_by('id')
+					return Client.objects.order_by('last_name')
+
 		else:
-			return Client.objects.order_by('id')
+			return Client.objects.order_by('last_name')
+		
 
 class DetailView(generic.DetailView):
 	model = Client

@@ -5,4 +5,5 @@ from django.contrib.auth.decorators import login_required
 app_name = 'deals'
 urlpatterns = [
 	path('', views.DealsListView.as_view(), name='dealsList'),
+	path('<int:pk>/', views.DealsDetailView.as_view(), name='DealsDetailView'),
 ]

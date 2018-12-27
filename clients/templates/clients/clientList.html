@@ -10,9 +10,10 @@
 				<a href="{% url 'index' %}" class="btn btn-outline-info" style="margin-bottom: 15px">Home</a>
 				<a href="{% url 'clients:clientList' %}" class="btn btn-outline-info" style="margin-bottom: 15px">Full List</a>
 			</div>
-			<div class="col">
+			<div class="col-lg">
 				<form method="GET">
 					<input type="textbox" name="last_name" placeholder="Last Name">
+					<input type="textbox" name="id" placeholder="Client ID">
 					<button type="submit" class="btn btn-outline-danger">Search</button>
 				</form>
 			</div>

@@ -1,0 +1,50 @@
+{% extends 'basic.html' %}
+{% block content %}
+	<h1>{{ deal.client_id }} Deal</h1>
+	<div style="background-color: #191924; padding: 50px 25px">
+		<div class="container">
+		<div class="row">
+			
+			<div class="col-sm">
+				<ul class="list-group">
+					<li class="list-group-item">{{ deal.id }}</li>
+					<li class="list-group-item">{{ deal.client_id }}</li>
+					<li class="list-group-item">{{ deal.employee_id }}</li>
+					<li class="list-group-item">{{ deal.zipcode }}</li>
+					<li class="list-group-item">{{ deal.gross_amount }}</li>
+					<li class="list-group-item">{{ deal.net_amount }}</li>
+					<li class="list-group-item">{{ deal.payments_purchased }}</li>
+				</ul>
+			</div>
+			<div class="col-sm">
+				<ul class="list-group">
+					<li class="list-group-item">{{ deal.last_name }}</li>
+					<li class="list-group-item">{{ deal.address_2 }}</li>
+					<li class="list-group-item">{{ deal.state }}</li>
+					<li class="list-group-item">{{ deal.phone_1 }}</li>
+					<li class="list-group-item">{{ deal.dob }}</li>
+					<li class="list-group-item">{{ deal.department }}</li>
+					<li class="list-group-item">{{ deal.salary }}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg" style="color: yellow">
+				<ul>
+					{% for deal in deal_list %}
+						<li>{{ deal }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<div class="row" style="padding-top: 10px">
+			<div class="col-sm">
+				
+				<a href="" class="btn btn-danger">deal List</a>
+				<a href="" class="btn btn-danger">Edit</a>
+				<a href="" class="btn btn-danger">Delete</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
