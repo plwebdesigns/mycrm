@@ -15,3 +15,16 @@ class DealsDetailView(generic.DetailView):
 	model = Deals
 	template_name = 'deals/DealsDetail.html'
 	context_object_name = 'deal'
+
+
+class DealsUpdateView(generic.UpdateView):
+	model = Deals
+	fields = '__all__'
+	success_url = '/clientList'
+		
+
+class DealsDeleteView(generic.DeleteView):
+	model = Deals
+	success_url = '/clientList'
+	context_object_name = 'deal'
+		

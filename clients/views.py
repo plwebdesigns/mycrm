@@ -16,14 +16,14 @@ class clientList(generic.ListView):
 					return Client.objects.filter(id__icontains=searchtxt)
 
 				if self.request.GET['last_name']:
-					searchtxt = self.request.GET.get('last_name', None)
-					return Client.objects.filter(last_name__icontains=searchtxt)
+					searchtxt_2 = self.request.GET.get('last_name', None)
+					return Client.objects.filter(last_name__icontains=searchtxt_2)
 
 				else:
-					return Client.objects.order_by('last_name')
+					return Client.objects.order_by('id')
 
 		else:
-			return Client.objects.order_by('last_name')
+			return Client.objects.order_by('id')
 		
 
 class DetailView(generic.DetailView):
@@ -53,3 +53,18 @@ class DeleteView(generic.DeleteView):
 	model = Client
 	success_url = '/clientList'
 
+
+class dealsCreateView(generic.CreateView):
+	model = Deals
+	fields = '__all__'
+	template_name_suffix = '_create_form'
+	success_url = '/clientList/'
+
+	def get_context_data(self, **kwargs):
+		context = super(dealsCreateView, self).get_context_data(**kwargs)
+		cid = self.kwargs['pk']
+		context['cid'] = cid
+		context['client'] = Client.objects.get(id=cid)
+		return context
+
+	

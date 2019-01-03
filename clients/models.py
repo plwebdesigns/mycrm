@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Client (models.Model):
@@ -21,3 +22,4 @@ class Client (models.Model):
     def __str__(self):
         template = '{0.last_name} {0.first_name}'
         return template.format(self)
+        

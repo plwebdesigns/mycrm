@@ -1,6 +1,7 @@
 from django.db import models
 from employees.models import Employee
 from clients.models import Client
+from django.urls import reverse
 
 
 class Deals(models.Model):
@@ -14,3 +15,6 @@ class Deals(models.Model):
     def __str__(self):
         template = 'Deal ID: {0.id} -Employee ID: {0.employee_id_id} --${0.gross_amount}'
         return template.format(self)
+
+
+    

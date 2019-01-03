@@ -39,10 +39,8 @@
 		</div>
 		<div class="row" style="padding-top: 10px">
 			<div class="col-sm">
-				
-				<a href="" class="btn btn-danger">deal List</a>
-				<a href="" class="btn btn-danger">Edit</a>
-				<a href="" class="btn btn-danger">Delete</a>
+				<a href="{% url 'deals:DealsUpdateView' deal.id %}" class="btn btn-danger">Edit</a>
+				<a href="{% url 'deals:DealsDeleteView' deal.id %}" class="btn btn-danger">Delete</a>
 			</div>
 		</div>
 	</div>

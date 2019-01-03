@@ -1,0 +1,21 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+	<h1>Create a new Deal for {{ client }}</h1>
+		<div class="form-group" style="background: #191924">
+			<form method="POST">
+				{% csrf_token %}
+				<table>
+					{% for field in form %}		
+						<tr class="row">
+							<td class="col">{{ field.label_tag }}</td>
+							<td class="col"> {{ field }}</td>
+							<td>{{ field.errors }}</td>
+						</tr>
+					{% endfor %}
+				</table>
+				<button class="btn btn-danger" type="submit">Save</button>
+				<a href="{% url 'clients:detail' cid %}" class="btn btn-danger">Cancel</a>
+			</form>
+		</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'basic.html' %}
+{% block content %}
+	<form method="POST">
+		{% csrf_token %}
+		<p style="color: yellow">ARE YOU SURE YOU WANT TO DELETE Deal ID: {{ deal.id }}??</p>
+		<button type="submit" class="btn btn-danger">Confirm</button>
+		<a href="{% url 'clients:detail' deal.client_id_id %}" class="btn btn-danger">Cancel</a>
+	</form>
+
+	{% endblock %}
