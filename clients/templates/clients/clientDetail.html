@@ -30,6 +30,7 @@
 		</div>
 		<div class="row">
 			<div class="col-lg" style="color: yellow">
+				<h3>Completed Deals:</h3>
 				<ul>
 					{% for deal in deal_list %}
 						<li><a href="{% url 'deals:DealsDetailView' deal.id %}">{{ deal }}</a></li>

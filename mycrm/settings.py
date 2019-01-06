@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'clients.apps.ClientsConfig',
     'employees.apps.EmployeesConfig',
     'deals.apps.DealsConfig',
+    'task_manager.apps.TaskManagerConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
