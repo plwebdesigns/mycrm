@@ -11,5 +11,5 @@ class Tasks(models.Model):
 	department = models.CharField(max_length=100)
 	date_created = models.DateField(auto_now=True)
 	date_due = models.DateField(auto_now=False)
-	summary = models.CharField(max_length=500)
+	summary = models.CharField(max_length=500, blank=True)
 	attachment = models.FileField(upload_to='uploads/%y/%m/')

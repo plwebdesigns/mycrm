@@ -1,0 +1,50 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+
+{% block content %}
+	<div class="page-header">
+		<h1 style="margin-bottom: 100px">Task List</h1>
+		<div class="row">
+			<div class="col">
+				<a href="{% url 'index' %}" class="btn btn-outline-info" style="margin-bottom: 15px">Home</a>
+				<a href="" class="btn btn-outline-info" style="margin-bottom: 15px">Full List</a>
+			</div>
+			<div class="col-lg">
+				<form method="GET">
+					<input type="textbox" name="last_name" placeholder="Last Name">
+					<input type="textbox" name="id" placeholder="task ID">
+					<button type="submit" class="btn btn-outline-danger">Search</button>
+				</form>
+			</div>
+			<div class="col">
+				<a href="{% url 'logout' %}" class="btn btn-outline-info float-right">Logout</a>
+			</div>
+		</div>
+	</div>
+	<div class="search"></div>
+	<table class="table">
+		<thead style="color: #F25F5C">
+			<tr>
+				<th scope="col">Task ID</th>
+				<th scope="col">Client ID</th>
+				<th scope="col">Employee ID</th>
+				<th scope="col">Date Started</th>
+				<th scope="col">Date Due</th>
+			</tr>	
+		</thead>
+		<tbody>
+			
+			{% for task in tasks.all %}
+			<tr>
+				<th class="row"><a href="">{{ task.id }}</a></th>
+				<td><a href="">{{ task.client_id }}</a></td>
+				<td><a href="">{{ task.employee_id }}</a></td>
+				<td><a href="">{{ task.date_created }}</a></td>
+				<td><a href="">{{ task.date_due }}</a></td>
+			</tr>
+			{% endfor %}
+			
+		</tbody>
+	</table>
+{% endblock %}

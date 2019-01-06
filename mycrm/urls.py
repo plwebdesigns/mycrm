@@ -33,4 +33,5 @@ urlpatterns = [
     path('employeeCreate/', employee_views.CreateView),
     path('delete/<int:pk>/', employee_views.DeleteView),
     path('dealsList/', include('deals.urls')),
+    path('taskList/', include('task_manager.urls')),
 ]
