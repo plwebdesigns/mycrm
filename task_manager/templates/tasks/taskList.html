@@ -38,10 +38,10 @@
 			{% for task in tasks.all %}
 			<tr>
 				<th class="row"><a href="{% url 'tasks:taskDetail' task.id %}">{{ task.id }}</a></th>
-				<td><a href="">{{ task.client_id }}</a></td>
-				<td><a href="">{{ task.employee_id }}</a></td>
-				<td><a href="">{{ task.date_created }}</a></td>
-				<td><a href="">{{ task.date_due }}</a></td>
+				<td><a href="{% url 'tasks:taskDetail' task.id %}">{{ task.client_id }}</a></td>
+				<td><a href="{% url 'tasks:taskDetail' task.id %}">{{ task.employee_id }}</a></td>
+				<td><a href="{% url 'tasks:taskDetail' task.id %}">{{ task.date_created }}</a></td>
+				<td><a href="{% url 'tasks:taskDetail' task.id %}">{{ task.date_due }}</a></td>
 			</tr>
 			{% endfor %}
 			

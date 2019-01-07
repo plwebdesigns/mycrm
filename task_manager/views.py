@@ -28,4 +28,12 @@ class TaskDetail(generic.DetailView):
 	model = Tasks
 	template_name = 'tasks/taskDetail.html'
 	context_object_name = 'task'
+
+
+class TaskEdit(generic.UpdateView):
+	model = Tasks
+	fields = '__all__'
+	success_url = '/taskList'
+	template_name = 'tasks/task_edit_form.html'
+	context_object_name = 'task'
 		
