@@ -1,0 +1,29 @@
+{% extends 'basic.html' %}
+{% block content %}
+	<div style="background-color: #191924; padding: 50px 25px">
+		<div class="container">
+		<div class="row">
+			
+			<div class="col-sm">
+				<ul class="list-group">
+					<li class="list-group-item"><b>Task ID:</b>  {{ task.id }}</li>
+					<li class="list-group-item"><b>Client ID:</b>  {{ task.client_id }}</li>
+					<li class="list-group-item"><b>Employee ID:</b>  {{ task.employee_id }}</li>
+					<li class="list-group-item"><b>Date Started:</b>  {{ task.date_created }}</li>
+					<li class="list-group-item"><b>Due Date:</b>  {{ task.date_due }}</li>
+					<li class="list-group-item"><b>Notes:</b>  {{ task.summary }}</li>
+					<li class="list-group-item"><b>Attachments:</b>  {{ task.attachment }}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row" style="padding-top: 10px">
+			<div class="col-sm">
+				
+				<a href="{% url 'tasks:taskList' %}" class="btn btn-danger">Task List</a>
+				<a href="" class="btn btn-danger">Edit</a>
+				<a href="" class="btn btn-danger">Delete</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

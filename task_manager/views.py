@@ -23,3 +23,9 @@ class TaskList(generic.ListView):
 
 		else:
 			return Tasks.objects.order_by('id')
+
+class TaskDetail(generic.DetailView):
+	model = Tasks
+	template_name = 'tasks/taskDetail.html'
+	context_object_name = 'task'
+		

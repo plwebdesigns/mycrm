@@ -37,7 +37,7 @@
 			
 			{% for task in tasks.all %}
 			<tr>
-				<th class="row"><a href="">{{ task.id }}</a></th>
+				<th class="row"><a href="{% url 'tasks:taskDetail' task.id %}">{{ task.id }}</a></th>
 				<td><a href="">{{ task.client_id }}</a></td>
 				<td><a href="">{{ task.employee_id }}</a></td>
 				<td><a href="">{{ task.date_created }}</a></td>
