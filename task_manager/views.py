@@ -36,4 +36,19 @@ class TaskEdit(generic.UpdateView):
 	success_url = '/taskList'
 	template_name = 'tasks/task_edit_form.html'
 	context_object_name = 'task'
+
+
+class TaskDelete(generic.DeleteView):
+	model = Tasks
+	success_url = '/taskList'
+	context_object_name = 'task'
+	template_name = 'tasks/task_confirm_delete.html'		
+
+
+class TaskCreate(generic.CreateView):
+	model = Tasks
+	fields = '__all__'
+	template_name = 'tasks/task_create_form.html'
+	success_url = '/taskList'
+		
 		

@@ -9,7 +9,23 @@ class IndexView(generic.ListView):
 	paginate_by = 62
 
 	def get_queryset(self):
-		return Employee.objects.order_by('id')
+		if self.request.method == 'GET' and self.request.GET:
+			if 'first_name' in self.request.GET:
+				if self.request.GET['first_name']:
+					searchtxt = self.request.GET.get('first_name', None)
+					return Employee.objects.filter(first_name__icontains=searchtxt)
+
+				if self.request.GET['last_name']:
+					searchtxt_2 = self.request.GET.get('last_name', None)
+					return Employee.objects.filter(last_name__icontains=searchtxt_2)
+
+				else:
+					return Employee.objects.order_by('id')
+
+		else:
+			return Employee.objects.order_by('id')
+
+	
 	
 
 class DetailView(generic.DeleteView):

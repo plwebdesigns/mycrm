@@ -22,7 +22,7 @@
 				
 				<a href="{% url 'tasks:taskList' %}" class="btn btn-danger">Task List</a>
 				<a href="{% url 'tasks:taskEdit' task.id %}" class="btn btn-danger">Edit</a>
-				<a href="" class="btn btn-danger">Delete</a>
+				<a href="{% url 'tasks:taskDelete' task.id %}" class="btn btn-danger">Delete</a>
 			</div>
 		</div>
 	</div>

@@ -10,9 +10,12 @@
 			<a href="{% url 'logout' %}" class="btn btn-outline-info" style="margin-bottom: 15px">Logout</a>
 		</div>
 		<div class="col">
-			<input type="text" name="txtfname" placeholder="First Name">
-			<input type="text" name="txtlname" placeholder="Last Name">
-			<button type="submit" class="btn btn-outline-danger">Search</button>
+			<form method="GET">
+				{% csrf_token %}
+				<input type="text" name="first_name" placeholder="First Name">
+				<input type="text" name="last_name" placeholder="Last Name">
+				<button type="submit" class="btn btn-outline-danger">Search</button>
+			</form>
 		</div>
 	</div>
 	</div>
