@@ -45,10 +45,5 @@ class TaskDelete(generic.DeleteView):
 	template_name = 'tasks/task_confirm_delete.html'		
 
 
-class TaskCreate(generic.CreateView):
-	model = Tasks
-	fields = '__all__'
-	template_name = 'tasks/task_create_form.html'
-	success_url = '/taskList'
 		
 		

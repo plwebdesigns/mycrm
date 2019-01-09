@@ -1,6 +1,8 @@
 from .models import Client
 from deals.models import Deals
+from task_manager.models import Tasks
 from django.views import generic
+from django.urls import reverse
 
 # Create your views here.
 class clientList(generic.ListView):
@@ -36,6 +38,7 @@ class DetailView(generic.DetailView):
 		    #Get slug(client id)
 		    cid = self.kwargs['pk']
 		    context['deal_list'] = Deals.objects.filter(client_id_id=cid)
+		    context['task_list'] = Tasks.objects.filter(client_id=cid)
 		    return context
 
 class UpdateView(generic.UpdateView):
@@ -58,7 +61,7 @@ class dealsCreateView(generic.CreateView):
 	model = Deals
 	fields = '__all__'
 	template_name_suffix = '_create_form'
-	success_url = '/clientList/'
+	
 
 	def get_context_data(self, **kwargs):
 		context = super(dealsCreateView, self).get_context_data(**kwargs)
@@ -67,4 +70,23 @@ class dealsCreateView(generic.CreateView):
 		context['client'] = Client.objects.get(id=cid)
 		return context
 
+	def get_success_url(self, **kwargs):
+		return reverse('clients:detail', kwargs = {'pk': self.object.client_id_id})
+
 	
+
+class taskCreateView(generic.CreateView):
+	model = Tasks
+	fields = '__all__'
+	template_name = 'tasks/task_create_form.html'
+
+	def get_context_data(self, **kwargs):
+		context = super(taskCreateView, self).get_context_data(**kwargs)
+		cid = self.kwargs['pk']
+		context['cid'] = cid
+		context['client'] = Client.objects.get(id=cid)
+
+		return context
+
+	def get_success_url(self, **kwargs):
+		return reverse('clients:detail', kwargs = {'pk': self.object.client_id_id})

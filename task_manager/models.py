@@ -19,3 +19,7 @@ class Tasks(models.Model):
 	date_due = models.DateField(auto_now=False)
 	summary = models.CharField(max_length=500, blank=True)
 	attachment = models.FileField(upload_to='uploads/%y/%m/', blank=True)
+
+	def __str__(self):
+	    template = 'Task ID: {0.id} -- Staus: {0.status}'
+	    return template.format(self)

@@ -29,11 +29,19 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg" style="color: yellow">
-				<h3>Completed Deals:</h3>
+			<div class="col" style="color: yellow;">
 				<ul>
+					<h3 style="text-align:left">Deals</h3>
 					{% for deal in deal_list %}
 						<li><a href="{% url 'deals:DealsDetailView' deal.id %}">{{ deal }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="col" style="color: yellow;">
+				<ul>
+					<h3 style="text-align:left">Tasks</h3>
+					{% for task in task_list %}
+						<li><a href="{% url 'tasks:taskDetail' task.id %}">{{ task }}</a></li>
 					{% endfor %}
 				</ul>
 			</div>
@@ -47,6 +55,7 @@
 			</div>
 			<div class="col-sm">
 				<a href="{% url 'clients:dealsCreate' client.id %}" class="btn btn-outline-info">Add Deal</a>
+				<a href="{% url 'clients:taskCreateView' client.id %}" class="btn btn-outline-info">Add Task</a>
 			</div>
 		</div>
 	</div>
