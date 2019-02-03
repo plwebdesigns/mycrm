@@ -7,8 +7,10 @@
 			<div class="col-sm">
 				<ul class="list-group">
 					<li class="list-group-item"><b>Task ID:</b>  {{ task.id }}</li>
-					<li class="list-group-item"><b>Client ID:</b>  {{ task.client_id }}</li>
-					<li class="list-group-item"><b>Employee ID:</b>  {{ task.employee_id }}</li>
+					<li class="list-group-item"><b>Client ID:</b>  {{ task.client_id }} | 
+						<b>Client Name:</b>{{client.first_name}} {{client.last_name}}</li>
+					<li class="list-group-item"><b>Employee ID:</b>  {{ task.employee_id }} | 
+						<b>Employee Name: </b> {{employee.first_name}} {{employee.last_name}}</li>
 					<li class="list-group-item"><b>Status:</b>  {{ task.status }}</li>
 					<li class="list-group-item"><b>Date Started:</b>  {{ task.date_created }}</li>
 					<li class="list-group-item"><b>Due Date:</b>  {{ task.date_due }}</li>

@@ -1,5 +1,8 @@
 from .models import Tasks
+from clients.models import Client
+from employees.models import Employee
 from django.views import generic
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 class TaskList(generic.ListView):
@@ -14,10 +17,6 @@ class TaskList(generic.ListView):
 					searchtxt = self.request.GET.get('id', None)
 					return Tasks.objects.filter(id__icontains=searchtxt)
 
-				if self.request.GET['last_name']:
-					searchtxt_2 = self.request.GET.get('last_name', None)
-					return Tasks.objects.filter(last_name__icontains=searchtxt_2)
-
 				else:
 					return Tasks.objects.order_by('id')
 
@@ -28,6 +27,13 @@ class TaskDetail(generic.DetailView):
 	model = Tasks
 	template_name = 'tasks/taskDetail.html'
 	context_object_name = 'task'
+
+	def get_context_data(self, **kwargs):
+		context = super(TaskDetail, self).get_context_data(**kwargs)
+		context['client'] = get_object_or_404(Client, pk=self.object.client_id)
+		context['employee'] = get_object_or_404(Employee, pk=self.object.employee_id)
+
+		return context
 
 
 class TaskEdit(generic.UpdateView):

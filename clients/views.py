@@ -3,6 +3,7 @@ from deals.models import Deals
 from task_manager.models import Tasks
 from django.views import generic
 from django.urls import reverse
+from django.contrib.auth.mixins import PermissionRequiredMixin
 
 # Create your views here.
 class clientList(generic.ListView):
@@ -41,16 +42,20 @@ class DetailView(generic.DetailView):
 		    context['task_list'] = Tasks.objects.filter(client_id=cid)
 		    return context
 
+
 class UpdateView(generic.UpdateView):
 	model = Client
 	fields = '__all__'
 	success_url = '/clientList'
 
-class CreateView(generic.CreateView):
+
+
+class CreateView(PermissionRequiredMixin,generic.CreateView):
 	model = Client
 	fields = '__all__'
 	template_name_suffix = '_create_form'
 	success_url = '/clientList'
+	permission_required = 'clients.add_client'
 
 class DeleteView(generic.DeleteView):
 	model = Client
