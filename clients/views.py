@@ -3,10 +3,10 @@ from deals.models import Deals
 from task_manager.models import Tasks
 from django.views import generic
 from django.urls import reverse
-from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin, AccessMixin, LoginRequiredMixin
 
 # Create your views here.
-class clientList(generic.ListView):
+class clientList(LoginRequiredMixin, generic.ListView):
 	template_name = 'clients/clientList.html'
 	context_object_name = 'clients'
 	paginate_by = 25
@@ -43,29 +43,32 @@ class DetailView(generic.DetailView):
 		    return context
 
 
-class UpdateView(generic.UpdateView):
+class UpdateView(PermissionRequiredMixin, generic.UpdateView):
 	model = Client
 	fields = '__all__'
 	success_url = '/clientList'
+	permission_required = 'clients.change_client'
 
 
 
-class CreateView(PermissionRequiredMixin,generic.CreateView):
+class CreateView(PermissionRequiredMixin, generic.CreateView):
 	model = Client
 	fields = '__all__'
 	template_name_suffix = '_create_form'
 	success_url = '/clientList'
 	permission_required = 'clients.add_client'
 
-class DeleteView(generic.DeleteView):
+class DeleteView(PermissionRequiredMixin, generic.DeleteView):
 	model = Client
 	success_url = '/clientList'
+	permission_required = 'clients.delete_client'
 
 
-class dealsCreateView(generic.CreateView):
+class dealsCreateView(PermissionRequiredMixin, generic.CreateView):
 	model = Deals
 	fields = '__all__'
 	template_name_suffix = '_create_form'
+	permission_required = 'clients.change_client'
 	
 
 	def get_context_data(self, **kwargs):
@@ -80,10 +83,11 @@ class dealsCreateView(generic.CreateView):
 
 	
 
-class taskCreateView(generic.CreateView):
+class taskCreateView(PermissionRequiredMixin, generic.CreateView):
 	model = Tasks
 	fields = '__all__'
 	template_name = 'tasks/task_create_form.html'
+	permission_required = 'clients.change_client'
 
 	def get_context_data(self, **kwargs):
 		context = super(taskCreateView, self).get_context_data(**kwargs)
