@@ -3,7 +3,7 @@ from deals.models import Deals
 from task_manager.models import Tasks
 from django.views import generic
 from django.urls import reverse
-from django.contrib.auth.mixins import PermissionRequiredMixin, AccessMixin, LoginRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 
 # Create your views here.
 class clientList(LoginRequiredMixin, generic.ListView):
@@ -29,7 +29,7 @@ class clientList(LoginRequiredMixin, generic.ListView):
 			return Client.objects.order_by('id')
 		
 
-class DetailView(generic.DetailView):
+class DetailView(LoginRequiredMixin, generic.DetailView):
 	model = Client
 	template_name = 'clients/clientDetail.html'
 	context_object_name = 'client'

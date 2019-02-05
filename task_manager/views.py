@@ -3,6 +3,7 @@ from clients.models import Client
 from employees.models import Employee
 from django.views import generic
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.mixins import PermissionRequiredMixin
 
 # Create your views here.
 class TaskList(generic.ListView):
@@ -36,19 +37,21 @@ class TaskDetail(generic.DetailView):
 		return context
 
 
-class TaskEdit(generic.UpdateView):
+class TaskEdit(PermissionRequiredMixin, generic.UpdateView):
 	model = Tasks
 	fields = '__all__'
 	success_url = '/taskList'
 	template_name = 'tasks/task_edit_form.html'
 	context_object_name = 'task'
+	permission_required = 'clients.change_client'
 
 
-class TaskDelete(generic.DeleteView):
+class TaskDelete(PermissionRequiredMixin, generic.DeleteView):
 	model = Tasks
 	success_url = '/taskList'
 	context_object_name = 'task'
-	template_name = 'tasks/task_confirm_delete.html'		
+	template_name = 'tasks/task_confirm_delete.html'	
+	permission_required = 'clients.delete_client'	
 
 
 		

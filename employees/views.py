@@ -2,13 +2,15 @@ from .models import Employee
 from django.views import generic
 from django.contrib.auth.models import User
 import random
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 
 # Create your views here.
-class IndexView(generic.ListView):
+class IndexView(LoginRequiredMixin, PermissionRequiredMixin, generic.ListView):
 	template_name = 'employees/employeeList.html'
 	context_object_name = 'employees'
 	paginate_by = 62
+	permission_required = 'employees.view_employee'
 
 	def get_queryset(self):
 		if self.request.method == 'GET' and self.request.GET:
@@ -30,22 +32,25 @@ class IndexView(generic.ListView):
 	
 	
 
-class DetailView(generic.DeleteView):
+class DetailView(LoginRequiredMixin, PermissionRequiredMixin, generic.DeleteView):
 	model = Employee
 	template_name = 'employees/detail.html'
+	permission_required = 'employees.view_employee'
 	
 
-class UpdateView(generic.UpdateView):
+class UpdateView(PermissionRequiredMixin, generic.UpdateView):
 	model = Employee
 	fields = '__all__'
 	success_url = '/employeeList/'
+	permission_required = 'employees.change_employee'
 	
 		
-class CreateView(generic.CreateView):
+class CreateView(PermissionRequiredMixin, generic.CreateView):
 	model = Employee
 	fields = '__all__'
 	template_name_suffix = '_create_form'
 	success_url = '/employeeList/'
+	permission_required = 'employees.add_employee'
 
 	def form_valid(self, form):
 		uname = 'temp' + str(random.randint(1,10000))
@@ -61,7 +66,8 @@ class CreateView(generic.CreateView):
 
 
 
-class DeleteView(generic.DeleteView):
+class DeleteView(PermissionRequiredMixin, generic.DeleteView):
 	model = Employee
 	success_url = '/employeeList/'
+	permission_required = 'employees.delete_employee'
 						
